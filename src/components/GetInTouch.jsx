@@ -1,7 +1,33 @@
 import { Mail, MapPin, Github, Linkedin, Twitter } from "lucide-react"
 import { motion } from "framer-motion"
+import emailjs from "@emailjs/browser"
+import { useRef } from "react"
+import toast from "react-hot-toast"
+
 
 export default function GetInTouch() {
+
+
+   const formRef = useRef(null) 
+
+  const sendEmail = (e) => { 
+    e.preventDefault()
+
+    emailjs.sendForm(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      formRef.current,
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    )
+    .then(() => {
+  toast.success("Message sent successfully 🚀")
+  formRef.current.reset()
+})
+.catch(() => {
+  toast.error("Failed to send message ❌")
+})
+  }
+
   // Variants for scroll animation
   const containerVariants = {
     hidden: {},
@@ -103,12 +129,15 @@ export default function GetInTouch() {
           viewport={{ once: true }}
           className="bg-gradient-to-b from-zinc-900/80 to-zinc-950/80 backdrop-blur-xl border border-zinc-800 rounded-3xl p-8 md:p-10 shadow-2xl"
         >
-          <form className="space-y-6">
+           <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
+
             <div>
               <label className="block mb-2 text-sm">Name</label>
               <input
                 type="text"
+                name="user_name"   // ✅ ADDED
                 placeholder="John Doe"
+                required
                 className="w-full rounded-xl bg-black/40 border border-zinc-700 px-4 py-4 focus:outline-none focus:border-orange-500"
               />
             </div>
@@ -117,7 +146,9 @@ export default function GetInTouch() {
               <label className="block mb-2 text-sm">Email</label>
               <input
                 type="email"
+                name="user_email"  // ✅ ADDED
                 placeholder="john@example.com"
+                required
                 className="w-full rounded-xl bg-black/40 border border-zinc-700 px-4 py-4 focus:outline-none focus:border-orange-500"
               />
             </div>
@@ -126,7 +157,9 @@ export default function GetInTouch() {
               <label className="block mb-2 text-sm">Message</label>
               <textarea
                 rows="5"
+                name="message"     // ✅ ADDED
                 placeholder="Hello! I'd like to discuss..."
+                required
                 className="w-full rounded-xl bg-black/40 border border-zinc-700 px-4 py-4 focus:outline-none focus:border-orange-500 resize-none"
               />
             </div>
@@ -137,6 +170,7 @@ export default function GetInTouch() {
             >
               Send Message
             </button>
+
           </form>
         </motion.div>
       </div>
