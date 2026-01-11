@@ -66,6 +66,9 @@ export default function Navbar() {
         <li onClick={() => scrollTo("projects")} className="hover:text-white cursor-pointer">
           Projects
         </li>
+        <li onClick={() => scrollTo("activities")} className="hover:text-white cursor-pointer">
+          activities
+        </li>
         <li onClick={() => scrollTo("contact")} className="hover:text-white cursor-pointer">
           Contact
         </li>

@@ -6,6 +6,7 @@ import TechStack from "../components/TechStack"
 import Projects from "../components/Projects"
 import GetInTouch from "../components/GetInTouch"
 import Footer from "../components/Footer"
+import Activities from "../components/Activities"
 
 export default function Home() {
   return (
@@ -26,6 +27,10 @@ export default function Home() {
         <AboutUs />
       </section>
 
+      <section id="activities">
+        <Activities />
+      </section>
+
       <section id="tech">
         <TechStack />
       </section>
@@ -33,6 +38,8 @@ export default function Home() {
       <section id="projects">
         <Projects />
       </section>
+
+
 
       <section id="contact">
         <GetInTouch />
