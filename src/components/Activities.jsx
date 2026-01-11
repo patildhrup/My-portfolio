@@ -1,5 +1,13 @@
+import { useState } from "react"
 import { motion } from "framer-motion"
-import { Award, BookOpen, Briefcase, ExternalLink } from "lucide-react"
+import {
+  Award,
+  BookOpen,
+  Briefcase,
+  ExternalLink,
+  ArrowLeft,
+  ArrowRight,
+} from "lucide-react"
 
 const activities = [
   {
@@ -30,12 +38,27 @@ const activities = [
 ]
 
 export default function Activities() {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const item = activities[currentIndex]
+
+  const handleNext = () => {
+    if (currentIndex < activities.length - 1) {
+      setCurrentIndex((prev) => prev + 1)
+    }
+  }
+
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex((prev) => prev - 1)
+    }
+  }
+
   return (
     <section
       id="activities"
       className="relative py-24 px-6 bg-dark text-white"
     >
-      <div className="max-w-6xl mx-auto space-y-24">
+      <div className="max-w-6xl mx-auto space-y-20">
 
         {/* Section Heading */}
         <motion.div
@@ -53,69 +76,91 @@ export default function Activities() {
           </p>
         </motion.div>
 
-        {/* Activity Blocks */}
-        {activities.map((item, index) => (
-          <div
-            key={index}
-            className={`grid grid-cols-1 md:grid-cols-2 gap-10 items-center ${
-              index % 2 !== 0 ? "md:flex-row-reverse" : ""
-            }`}
+        {/* Activity Card */}
+        <motion.div
+          key={currentIndex}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
+        >
+          {/* LEFT → Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -80 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md"
           >
-            {/* LEFT → Content */}
-            <motion.div
-              initial={{ opacity: 0, x: -80 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md"
-            >
-              {/* Glow */}
-              <div className="absolute inset-0 rounded-2xl bg-primary opacity-0 blur-xl hover:opacity-10 transition" />
-
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary">
-                  {item.icon}
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold">{item.title}</h3>
-                  <span className="text-sm font-mono text-primary">
-                    {item.type}
-                  </span>
-                </div>
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary">
+                {item.icon}
               </div>
+              <div>
+                <h3 className="text-xl font-bold">{item.title}</h3>
+                <span className="text-sm font-mono text-primary">
+                  {item.type}
+                </span>
+              </div>
+            </div>
 
-              <p className="text-muted-foreground">
-                {item.description}
-              </p>
+            <p className="text-muted-foreground">
+              {item.description}
+            </p>
 
-              {item.link && (
-                <a
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 mt-4 text-primary hover:underline"
-                >
-                  View Certificate <ExternalLink size={14} />
-                </a>
-              )}
-            </motion.div>
+            {item.link && (
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 mt-4 text-primary hover:underline"
+              >
+                View Certificate <ExternalLink size={14} />
+              </a>
+            )}
+          </motion.div>
 
-            {/* RIGHT → Image */}
-            <motion.div
-              initial={{ opacity: 0, x: 80, scale: 0.95 }}
-              whileInView={{ opacity: 1, x: 0, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative rounded-2xl overflow-hidden border border-primary/20 shadow-lg"
-            >
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-              />
-            </motion.div>
-          </div>
-        ))}
+          {/* RIGHT → Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 80, scale: 0.95 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="relative rounded-2xl overflow-hidden border border-primary/20 shadow-lg"
+          >
+            <img
+              src={item.image}
+              alt={item.title}
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            />
+          </motion.div>
+        </motion.div>
+
+        {/* Navigation */}
+        <div className="flex justify-center items-center gap-8">
+          <button
+            onClick={handlePrev}
+            disabled={currentIndex === 0}
+            className="p-4 rounded-full border border-primary text-primary
+                       disabled:opacity-40 disabled:cursor-not-allowed
+                       hover:bg-primary hover:text-black transition"
+          >
+            <ArrowLeft size={22} />
+          </button>
+
+          <span className="text-sm font-mono text-muted-foreground">
+            {currentIndex + 1} / {activities.length}
+          </span>
+
+          <button
+            onClick={handleNext}
+            disabled={currentIndex === activities.length - 1}
+            className="p-4 rounded-full border border-primary text-primary
+                       disabled:opacity-40 disabled:cursor-not-allowed
+                       hover:bg-primary hover:text-black transition"
+          >
+            <ArrowRight size={22} />
+          </button>
+        </div>
+
       </div>
     </section>
   )
