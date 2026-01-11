@@ -72,12 +72,12 @@ export default function Projects() {
               Projects
             </h2>
             <p className="text-zinc-400">
-              Infrastructure as Code in action.
+              A collection of real-world projects showcasing automation, cloud, and DevOps practices.
             </p>
           </div>
 
           <a
-            href="https://github.com/in/spatildhrup"
+            href="https://github.com/patildhrup"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:flex items-center gap-2 text-orange-500 hover:underline"
