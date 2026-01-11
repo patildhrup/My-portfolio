@@ -10,7 +10,6 @@ export default function Navbar() {
     const onScroll = () => {
       setScrolled(window.scrollY > 40)
     }
-
     window.addEventListener("scroll", onScroll)
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
@@ -31,13 +30,22 @@ export default function Navbar() {
     })
   }, [scrolled])
 
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+    })
+  }
+
   return (
     <nav
       ref={navRef}
       className="fixed top-0 w-full z-50 px-10 py-6 flex justify-between items-center transition-colors"
     >
-      {/* Logo */}
-      <div className="flex items-center gap-2 cursor-pointer group">
+      {/* Logo → HERO */}
+      <div
+        onClick={() => scrollTo("hero")}
+        className="flex items-center gap-2 cursor-pointer group"
+      >
         <div className="relative">
           <div className="absolute inset-0 bg-primary blur-md opacity-20 group-hover:opacity-40 transition-opacity" />
           <Terminal className="w-8 h-8 text-primary relative z-10" />
@@ -49,14 +57,25 @@ export default function Navbar() {
 
       {/* Nav Links */}
       <ul className="hidden md:flex gap-8 text-primary font-mono">
-        <li className="hover:text-white cursor-pointer">About</li>
-        <li className="hover:text-white cursor-pointer">Skills</li>
-        <li className="hover:text-white cursor-pointer">Projects</li>
-        <li className="hover:text-white cursor-pointer">Contact</li>
+        <li onClick={() => scrollTo("about")} className="hover:text-white cursor-pointer">
+          About
+        </li>
+        <li onClick={() => scrollTo("tech")} className="hover:text-white cursor-pointer">
+          Skills
+        </li>
+        <li onClick={() => scrollTo("projects")} className="hover:text-white cursor-pointer">
+          Projects
+        </li>
+        <li onClick={() => scrollTo("contact")} className="hover:text-white cursor-pointer">
+          Contact
+        </li>
       </ul>
 
-      {/* CTA */}
-      <button className="border border-primary px-5 py-2 rounded-md text-primary hover:bg-primary hover:text-black transition">
+      {/* CTA → CONTACT */}
+      <button
+        onClick={() => scrollTo("contact")}
+        className="border border-primary px-5 py-2 rounded-md text-primary hover:bg-primary hover:text-black transition"
+      >
         Hire Me
       </button>
     </nav>
