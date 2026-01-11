@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Github } from "lucide-react"
+import { motion } from "framer-motion"
 
 const projects = [
   {
@@ -34,38 +35,37 @@ const projects = [
     tags: ["Terraform", "AWS", "Azure"],
     link: "https://github.com/in/patildhrup/project1",
   },
-  {
-    title: "Infrastructure as Code Library",
-    description:
-      "Reusable Terraform modules for multi-cloud deployments.",
-    image: "keegan-houser--Q_t4SCN8c4-unsplash - Copy.jpg",
-    tags: ["Terraform", "AWS", "Azure"],
-    link: "https://github.com/in/patildhrup/project1",
-  },
-  {
-    title: "Infrastructure as Code Library",
-    description:
-      "Reusable Terraform modules for multi-cloud deployments.",
-    image: "keegan-houser--Q_t4SCN8c4-unsplash - Copy.jpg",
-    tags: ["Terraform", "AWS", "Azure"],
-    link: "https://github.com/in/patildhrup/project1",
-  },
 ]
 
 export default function Projects() {
   const VISIBLE_COUNT = 3
   const [showAll, setShowAll] = useState(false)
 
-  const visibleProjects = showAll
-    ? projects
-    : projects.slice(0, VISIBLE_COUNT)
+  const visibleProjects = showAll ? projects : projects.slice(0, VISIBLE_COUNT)
+
+  // Framer Motion variants
+  const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.15 } },
+  }
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  }
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-black via-zinc-950 to-black px-6 md:px-20 py-24 text-white">
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
-        <div className="flex items-center justify-between mb-14">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex items-center justify-between mb-14"
+        >
           <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-2">
               <span className="text-orange-500 mr-2">03.</span>
@@ -84,13 +84,21 @@ export default function Projects() {
           >
             View Github Profile →
           </a>
-        </div>
+        </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+        >
           {visibleProjects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
+              variants={cardVariants}
+              whileHover={{ scale: 1.03, y: -5 }}
               className="group relative rounded-3xl overflow-hidden
                          bg-gradient-to-b from-zinc-900/80 to-zinc-950/90
                          border border-zinc-800
@@ -146,13 +154,19 @@ export default function Projects() {
                   )}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Show More / Show Less */}
         {projects.length > VISIBLE_COUNT && (
-          <div className="flex justify-center mt-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex justify-center mt-16"
+          >
             <button
               onClick={() => setShowAll(!showAll)}
               className="px-8 py-3 rounded-full border border-orange-500 text-orange-500
@@ -160,7 +174,7 @@ export default function Projects() {
             >
               {showAll ? "Show Less" : "Show More"}
             </button>
-          </div>
+          </motion.div>
         )}
       </div>
     </section>

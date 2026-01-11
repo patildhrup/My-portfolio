@@ -1,79 +1,109 @@
 import { Mail, MapPin, Github, Linkedin, Twitter } from "lucide-react"
+import { motion } from "framer-motion"
 
 export default function GetInTouch() {
+  // Variants for scroll animation
+  const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.15 } },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  }
+
+  const formVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
+  }
+
   return (
     <section className="min-h-screen bg-gradient-to-br from-black via-zinc-950 to-black text-white px-6 md:px-20 py-24">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         
         {/* LEFT CONTENT */}
-        <div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="space-y-6"
+        >
+          <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold mb-6">
             <span className="text-orange-500 mr-2">04.</span>
             Get In Touch
-          </h2>
+          </motion.h2>
 
-          <p className="text-zinc-400 max-w-xl leading-relaxed mb-10">
+          <motion.p variants={itemVariants} className="text-zinc-400 max-w-xl leading-relaxed mb-10">
             I'm currently open to new opportunities. Whether you have a question
             about infrastructure, want to collaborate on a project, or just
             want to say hi, my inbox is always open!
-          </p>
+          </motion.p>
 
           {/* Contact Info */}
-          <div className="space-y-6 text-zinc-300">
-            <div className="flex items-center gap-4">
+          <motion.div variants={containerVariants} className="space-y-6 text-zinc-300">
+            <motion.div variants={itemVariants} className="flex items-center gap-4">
               <span className="p-3 rounded-full bg-orange-500/10 text-orange-500">
                 <Mail size={20} />
               </span>
               <span>patildhrup45@gmail.com</span>
-            </div>
+            </motion.div>
 
-            <div className="flex items-center gap-4">
+            <motion.div variants={itemVariants} className="flex items-center gap-4">
               <span className="p-3 rounded-full bg-orange-500/10 text-orange-500">
                 <MapPin size={20} />
               </span>
               <span>Palghar, India</span>
-            </div>
-          </div>
-          
+            </motion.div>
+          </motion.div>
 
           {/* Social Icons */}
-          <div className="flex gap-4 mt-10">
-  <a
-    href="https://github.com/patildhrup"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-12 h-12 flex items-center justify-center rounded-full border border-zinc-700 text-zinc-300
-               hover:border-orange-500 hover:text-orange-500 transition"
-  >
-    <Github size={20} />
-  </a>
+          <motion.div variants={containerVariants} className="flex gap-4 mt-10">
+            <motion.a
+              variants={itemVariants}
+              href="https://github.com/patildhrup"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 flex items-center justify-center rounded-full border border-zinc-700 text-zinc-300
+                         hover:border-orange-500 hover:text-orange-500 transition"
+            >
+              <Github size={20} />
+            </motion.a>
 
-  <a
-    href="https://linkedin.com/in/patildhrup"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-12 h-12 flex items-center justify-center rounded-full border border-zinc-700 text-zinc-300
-               hover:border-orange-500 hover:text-orange-500 transition"
-  >
-    <Linkedin size={20} />
-  </a>
+            <motion.a
+              variants={itemVariants}
+              href="https://linkedin.com/in/patildhrup"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 flex items-center justify-center rounded-full border border-zinc-700 text-zinc-300
+                         hover:border-orange-500 hover:text-orange-500 transition"
+            >
+              <Linkedin size={20} />
+            </motion.a>
 
-  <a
-    href="https://twitter.com/yourusername"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-12 h-12 flex items-center justify-center rounded-full border border-zinc-700 text-zinc-300
-               hover:border-orange-500 hover:text-orange-500 transition"
-  >
-    <Twitter size={20} />
-  </a>
-</div>
-</div>
+            <motion.a
+              variants={itemVariants}
+              href="https://twitter.com/yourusername"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 flex items-center justify-center rounded-full border border-zinc-700 text-zinc-300
+                         hover:border-orange-500 hover:text-orange-500 transition"
+            >
+              <Twitter size={20} />
+            </motion.a>
+          </motion.div>
+        </motion.div>
 
         {/* RIGHT FORM */}
-        <div className="bg-gradient-to-b from-zinc-900/80 to-zinc-950/80 backdrop-blur-xl border border-zinc-800 rounded-3xl p-8 md:p-10 shadow-2xl">
+        <motion.div
+          variants={formVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="bg-gradient-to-b from-zinc-900/80 to-zinc-950/80 backdrop-blur-xl border border-zinc-800 rounded-3xl p-8 md:p-10 shadow-2xl"
+        >
           <form className="space-y-6">
-            
             <div>
               <label className="block mb-2 text-sm">Name</label>
               <input
@@ -108,9 +138,8 @@ export default function GetInTouch() {
               Send Message
             </button>
           </form>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
 }
-
