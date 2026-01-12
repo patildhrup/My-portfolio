@@ -111,13 +111,13 @@ export default function AboutUs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">
             <span className="text-orange-500 mr-2">02.</span>
             About Me
           </h2>
-          <p className="text-zinc-400 max-w-2xl">
+          <p className="text-zinc-400 max-w-2xl text-sm md:text-base">
             A brief introduction about who I am and what I do.
           </p>
         </motion.div>
@@ -128,7 +128,7 @@ export default function AboutUs() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start"
+          className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start"
         >
           {/* Text Section */}
           <AnimatePresence mode="wait">
@@ -138,7 +138,7 @@ export default function AboutUs() {
               initial="hidden"
               animate="visible"
               exit={{ opacity: 0, x: 20 }}
-              className="text-zinc-400 leading-relaxed space-y-4"
+              className="text-zinc-400 leading-relaxed space-y-4 text-sm md:text-base"
             >
               {selectedTech ? (
                 <>
