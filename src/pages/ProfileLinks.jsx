@@ -2,15 +2,9 @@ import { motion } from "framer-motion"
 import { Github, Linkedin } from "lucide-react"
 import { useEffect } from "react"
 import confetti from "canvas-confetti"
-import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 export default function ProfileLinks() {
-
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    navigate("/home", { replace: true })
-  }, [navigate])
 
   // 🎉 Confetti on first render
   useEffect(() => {
@@ -103,12 +97,12 @@ export default function ProfileLinks() {
             GitHub
           </a>
 
-          <a
-            href="/home"
+          <Link
+            to="/home"
             className="flex items-center justify-center px-6 py-3 rounded-full bg-primary text-black hover:opacity-90 transition"
           >
             Portfolio
-          </a>
+          </Link>
         </motion.div>
       </motion.div>
     </section>
