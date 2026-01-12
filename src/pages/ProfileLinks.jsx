@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import { Github, Linkedin } from "lucide-react"
 import { useEffect } from "react"
 import confetti from "canvas-confetti"
+import { useNavigate } from "react-router-dom"
 
 export default function ProfileLinks() {
 
@@ -10,7 +11,7 @@ export default function ProfileLinks() {
   useEffect(() => {
     navigate("/home", { replace: true })
   }, [navigate])
-  
+
   // 🎉 Confetti on first render
   useEffect(() => {
     const duration = 1.5 * 1000
