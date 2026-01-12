@@ -5,6 +5,12 @@ import confetti from "canvas-confetti"
 
 export default function ProfileLinks() {
 
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    navigate("/home", { replace: true })
+  }, [navigate])
+  
   // 🎉 Confetti on first render
   useEffect(() => {
     const duration = 1.5 * 1000
