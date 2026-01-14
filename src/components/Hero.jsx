@@ -26,7 +26,7 @@ export default function Hero() {
   }
 
   return (
-    <section ref={heroRef} className="min-h-screen flex flex-col justify-center items-center text-center px-4">
+    <section ref={heroRef} className="min-h-screen pt-28 md:pt-32 flex flex-col justify-center items-center text-center px-4">
 
       {/* Badge */}
       <div className="inline-flex items-center mb-6 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-sm">
