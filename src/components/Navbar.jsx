@@ -77,9 +77,9 @@ export default function Navbar() {
       {/* CTA → CONTACT */}
       <button
         onClick={() => scrollTo("contact")}
-        className="border border-primary px-5 py-2 rounded-md text-primary hover:bg-primary hover:text-black transition"
+        className="border border-primary px-5 py-2 rounded-full text-primary hover:bg-primary hover:text-black transition"
       >
-        Hire Me
+        Let's Collaborate
       </button>
     </nav>
   )

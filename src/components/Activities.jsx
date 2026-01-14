@@ -79,20 +79,20 @@ export default function Activities() {
         {/* Activity Card */}
         <motion.div
           key={currentIndex}
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center"
         >
           {/* LEFT → Content */}
           <motion.div
-            initial={{ opacity: 0, x: -80 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: window.innerWidth > 768 ? -80 : 0, y: window.innerWidth <= 768 ? 20 : 0 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
             transition={{ duration: 0.8 }}
             className="relative p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md"
           >
             <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary">
+              <div className="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary shrink-0">
                 {item.icon}
               </div>
               <div>
@@ -121,10 +121,10 @@ export default function Activities() {
 
           {/* RIGHT → Image */}
           <motion.div
-            initial={{ opacity: 0, x: 80, scale: 0.95 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
+            initial={{ opacity: 0, x: window.innerWidth > 768 ? 80 : 0, y: window.innerWidth <= 768 ? 20 : 0, scale: 0.95 }}
+            animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className="relative rounded-2xl overflow-hidden border border-primary/20 shadow-lg"
+            className="relative rounded-2xl overflow-hidden border border-primary/20 shadow-lg aspect-video md:aspect-auto h-64 md:h-80"
           >
             <img
               src={item.image}
