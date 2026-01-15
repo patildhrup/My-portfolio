@@ -9,6 +9,7 @@ import {
   ArrowRight,
 } from "lucide-react"
 
+/* Activities Data */
 const activities = [
   {
     title: "AWS Cloud Practitioner",
@@ -36,15 +37,24 @@ const activities = [
   },
 ]
 
-/* Animation variants */
+/* Animation Variants */
 const contentVariant = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, x: -60 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
 }
 
 const imageVariant = {
-  hidden: { opacity: 0, scale: 0.95 },
-  visible: { opacity: 1, scale: 1 },
+  hidden: { opacity: 0, x: 60, scale: 0.96 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
 }
 
 export default function Activities() {
@@ -74,21 +84,24 @@ export default function Activities() {
           </p>
         </motion.div>
 
-        {/* Card */}
+        {/* Animated Card */}
         <motion.div
           key={currentIndex}
           initial="hidden"
           animate="visible"
-          transition={{ duration: 0.6 }}
+          transition={{ staggerChildren: 0.15 }}
           className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center"
         >
-          {/* Content */}
+
+          {/* Content Card (Left) */}
           <motion.div
             variants={contentVariant}
-            className="p-5 sm:p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md"
+            className="p-5 sm:p-6 rounded-2xl border border-white/10
+            bg-white/5 backdrop-blur-md"
           >
             <div className="flex items-center gap-4 mb-4">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center
+              rounded-full bg-primary/10 text-primary">
                 {item.icon}
               </div>
               <div>
@@ -117,16 +130,18 @@ export default function Activities() {
             )}
           </motion.div>
 
-          {/* Image */}
+          {/* Certificate Image (Right) */}
           <motion.div
             variants={imageVariant}
-            className="relative rounded-2xl overflow-hidden border border-primary/20 shadow-lg
+            className="relative rounded-2xl overflow-hidden
+            border border-primary/20 shadow-lg
             h-56 sm:h-64 md:h-80"
           >
             <img
               src={item.image}
               alt={item.title}
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              className="w-full h-full object-cover
+              hover:scale-105 transition-transform duration-500"
             />
           </motion.div>
         </motion.div>
@@ -157,6 +172,7 @@ export default function Activities() {
             <ArrowRight size={20} />
           </button>
         </div>
+
       </div>
     </section>
   )
