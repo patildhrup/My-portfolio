@@ -6,35 +6,123 @@ import {
   Briefcase,
   ExternalLink,
   ArrowLeft,
+  Ship,
   ArrowRight,
+  Cloud,
+  BarChart,
+  Leaf,
+  Code,
+  Zap,
+  Cpu,
 } from "lucide-react"
 
 /* Activities Data */
 const activities = [
   {
-    title: "AWS Cloud Practitioner",
-    type: "Certification",
+  title: "VCET Hackathon 2024 – Code the Cosmos",
+  type: "Hackathon",
+  description:
+    "Participated in a 2-day national-level hackathon focused on problem-solving, teamwork, and building innovative technical solutions under time constraints.",
+  icon: <Zap />,
+  image: "/activities/Hackethon-2024-VCET.png",
+}
+,
+ {
+  title: "VCET Hackathon 2025 – Race to the Future",
+  type: "Hackathon",
+  description:
+    "Participated in a 2-day national-level hackathon focused on problem-solving, teamwork, and building innovative technical solutions under time constraints.",
+  icon: <Zap />,
+  image: "/activities/hackethon-2025-VCET.png",
+}
+,
+{
+  title: "AWS: Zero To Hero – TrainWithShubham",
+  type: "Certification",
+  description: "Mastered end-to-end cloud infrastructure including IAM security, VPC networking, and EBS/S3 storage. Gained hands-on experience with AWS CLI, RDS/Dynomodb databases, and monitoring tools (CloudWatch). Specialized in modern architectures via Serverless (Lambda), Containerization, and Kubernetes on AWS (EKS), culminating in a comprehensive Serverless mega-project.",
+  icon: <Cloud />,
+  image: "/activities/AWS-certification.png",
+},
+   {
+    title: "AWS DevOps Masterclass",
+    type: "workshop",
     description:
-      "Foundational AWS cloud concepts, IAM, EC2, S3, billing and pricing models.",
-    icon: <Award />,
+      "Gained hands-on experience with AWS DevOps practices including CI/CD pipelines, cloud automation, and deployment strategies.",
+    icon: <BarChart />,
     image: "/activities/cert1.jpg",
   },
   {
-    title: "Docker & Kubernetes Workshop",
-    type: "Activity",
+  title: "Deep Learning in Ecological Studies – ISRO (IIRS)",
+  type: "Workshop",
+  description: "Participated in a specialized IIRS Outreach Programme workshop conducted by the Indian Space Research Organisation, focusing on the applications of Deep Learning in environmental and ecological data.",
+  icon: <Cpu />, // Or <Globe />
+  image: "/activities/Isro-workshop.jpeg",
+},
+  {
+    title: "Generative AI for DevOps Masterclass",
+    type: "workshop",
     description:
-      "Hands-on workshop covering Docker, Kubernetes architecture and deployments.",
-    icon: <Briefcase />,
+    "Completed an intensive masterclass on applying Generative AI in DevOps workflows, including CI/CD automation, monitoring, and intelligent infrastructure management.",
+      
+    icon: <BarChart />,
     image: "/activities/cert2.jpg",
   },
   {
-    title: "DevOps Bootcamp",
-    type: "Training",
+    title: "Innovathons'25 a national level project presentation hackathon",
+    type: "Activity",
     description:
-      "CI/CD pipelines, GitHub Actions, Terraform, monitoring & DevOps practices.",
-    icon: <BookOpen />,
+      "Hands-on workshop covering Docker containerization, Kubernetes architecture, pod management, and application deployments.",
+    icon: <Briefcase />,
     image: "/activities/cert3.jpg",
   },
+  {
+    title: "PhonePe Data Analysis using Power BI",
+    type: "Workshop",
+    description:
+      "Participated in a data analytics workshop focused on visualizing and analyzing PhonePe transaction data using Power BI dashboards.",
+    icon: <BarChart />,
+    image: "/activities/dataAnalyst-workshop.png",
+  },
+  {
+    title: "Green Skills & Artificial Intelligence",
+    type: "Certification",
+    description:
+      "Completed a foundation course on Green Skills and Artificial Intelligence under the Skills4Future program, focusing on sustainable and ethical AI.",
+    icon: <Leaf />,
+    image: "/activities/datascience-workshop.jpeg",
+  },
+  {
+    title: "Full Stack Web Development",
+    type: "Certification",
+    description:
+      "Successfully completed a full-stack development program covering HTML, CSS, JavaScript, Node.js, MongoDB, and React.",
+    icon: <Code />,
+    image: "/activities/fullstack-apnacollege.png",
+  },
+  {
+    title: "Webcade 2024 Hackathon",
+    type: "Hackathon",
+    description:
+      "Participated in a 12-hour state-level hackathon, collaborating in a team to design and present an innovative technical solution.",
+    icon: <Zap />,
+    image: "/activities/Hackethon-2024-SJ.png",
+  },
+  {
+    title: "Generative AI Innovation Workshop",
+    type: "Workshop",
+    description:
+      "Attended an industry-led workshop on Generative AI innovation, exploring real-world AI applications and emerging trends.",
+    icon: <Cpu />,
+    image: "/activities/datascience-workshop2.jpeg",
+  },
+  {
+  title: "Kubernetes For Absolute Beginners – KodeKloud",
+  type: "Certification",
+  description: "Successfully completed a comprehensive crash course covering Kubernetes architecture, pods, deployments, and services, gaining hands-on experience in container orchestration.",
+  icon: <Ship />, // Or <Cloud />
+  image: "/activities/k8s-certification.png",
+},
+
 ]
 
 /* Animation Variants */
