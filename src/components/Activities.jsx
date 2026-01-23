@@ -19,31 +19,31 @@ import {
 /* Activities Data */
 const activities = [
   {
-  title: "VCET Hackathon 2024 – Code the Cosmos",
-  type: "Hackathon",
-  description:
-    "Participated in a 2-day national-level hackathon focused on problem-solving, teamwork, and building innovative technical solutions under time constraints.",
-  icon: <Zap />,
-  image: "/activities/Hackethon-2024-VCET.png",
-}
-,
- {
-  title: "VCET Hackathon 2025 – Race to the Future",
-  type: "Hackathon",
-  description:
-    "Participated in a 2-day national-level hackathon focused on problem-solving, teamwork, and building innovative technical solutions under time constraints.",
-  icon: <Zap />,
-  image: "/activities/hackethon-2025-VCET.png",
-}
-,
-{
-  title: "AWS: Zero To Hero – TrainWithShubham",
-  type: "Certification",
-  description: "Mastered end-to-end cloud infrastructure including IAM security, VPC networking, and EBS/S3 storage. Gained hands-on experience with AWS CLI, RDS/Dynomodb databases, and monitoring tools (CloudWatch). Specialized in modern architectures via Serverless (Lambda), Containerization, and Kubernetes on AWS (EKS), culminating in a comprehensive Serverless mega-project.",
-  icon: <Cloud />,
-  image: "/activities/AWS-certification.png",
-},
-   {
+    title: "VCET Hackathon 2024 – Code the Cosmos",
+    type: "Hackathon",
+    description:
+      "Participated in a 2-day national-level hackathon focused on problem-solving, teamwork, and building innovative technical solutions under time constraints.",
+    icon: <Zap />,
+    image: "/activities/Hackethon-2024-VCET.png",
+  }
+  ,
+  {
+    title: "VCET Hackathon 2025 – Race to the Future",
+    type: "Hackathon",
+    description:
+      "Participated in a 2-day national-level hackathon focused on problem-solving, teamwork, and building innovative technical solutions under time constraints.",
+    icon: <Zap />,
+    image: "/activities/hackethon-2025-VCET.png",
+  }
+  ,
+  {
+    title: "AWS: Zero To Hero – TrainWithShubham",
+    type: "Certification",
+    description: "Mastered end-to-end cloud infrastructure including IAM security, VPC networking, and EBS/S3 storage. Gained hands-on experience with AWS CLI, RDS/Dynomodb databases, and monitoring tools (CloudWatch). Specialized in modern architectures via Serverless (Lambda), Containerization, and Kubernetes on AWS (EKS), culminating in a comprehensive Serverless mega-project.",
+    icon: <Cloud />,
+    image: "/activities/AWS-certification.png",
+  },
+  {
     title: "AWS DevOps Masterclass",
     type: "workshop",
     description:
@@ -52,18 +52,26 @@ const activities = [
     image: "/activities/cert1.jpg",
   },
   {
-  title: "Deep Learning in Ecological Studies – ISRO (IIRS)",
-  type: "Workshop",
-  description: "Participated in a specialized IIRS Outreach Programme workshop conducted by the Indian Space Research Organisation, focusing on the applications of Deep Learning in environmental and ecological data.",
-  icon: <Cpu />, // Or <Globe />
-  image: "/activities/Isro-workshop.jpeg",
-},
+    title: "AWS DevOps and Agentic AI Masterclass",
+    type: "workshop",
+    description:
+      "Hands-on masterclass focused on AWS DevOps practices and Agentic AI concepts. Covered CI/CD pipeline design, cloud automation, infrastructure as code, containerized deployments, and an introduction to AI agents for autonomous task execution and intelligent workflow orchestration on AWS.",
+    icon: <BarChart />,
+    image: "/activities/aws devops and agentic AI workshop.png",
+  },
+  {
+    title: "Deep Learning in Ecological Studies – ISRO (IIRS)",
+    type: "Workshop",
+    description: "Participated in a specialized IIRS Outreach Programme workshop conducted by the Indian Space Research Organisation, focusing on the applications of Deep Learning in environmental and ecological data.",
+    icon: <Cpu />, // Or <Globe />
+    image: "/activities/Isro-workshop.jpeg",
+  },
   {
     title: "Generative AI for DevOps Masterclass",
     type: "workshop",
     description:
-    "Completed an intensive masterclass on applying Generative AI in DevOps workflows, including CI/CD automation, monitoring, and intelligent infrastructure management.",
-      
+      "Completed an intensive masterclass on applying Generative AI in DevOps workflows, including CI/CD automation, monitoring, and intelligent infrastructure management.",
+
     icon: <BarChart />,
     image: "/activities/cert2.jpg",
   },
@@ -116,12 +124,12 @@ const activities = [
     image: "/activities/datascience-workshop2.jpeg",
   },
   {
-  title: "Kubernetes For Absolute Beginners – KodeKloud",
-  type: "Certification",
-  description: "Successfully completed a comprehensive crash course covering Kubernetes architecture, pods, deployments, and services, gaining hands-on experience in container orchestration.",
-  icon: <Ship />, // Or <Cloud />
-  image: "/activities/k8s-certification.png",
-},
+    title: "Kubernetes For Absolute Beginners – KodeKloud",
+    type: "Certification",
+    description: "Successfully completed a comprehensive crash course covering Kubernetes architecture, pods, deployments, and services, gaining hands-on experience in container orchestration.",
+    icon: <Ship />, // Or <Cloud />
+    image: "/activities/k8s-certification.png",
+  },
 
 ]
 
