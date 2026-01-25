@@ -2,12 +2,12 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"
 import ProfileLinks from "./pages/ProfileLinks"
 import Home from "./pages/Home"
 import NotFound from "./pages/NotFound"
-import AskMeAnything from "./components/AskMeAnything"
+// import AskMeAnything from "./components/AskMeAnything"
 
 function Layout() {
-  const location = useLocation();
+  // const location = useLocation();
   // Don't show on ProfileLinks (which is at "/")
-  const showAMA = location.pathname !== "/";
+  // const showAMA = location.pathname !== "/";
 
   return (
     <>
@@ -16,7 +16,7 @@ function Layout() {
         <Route path="/home" element={<Home />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      {showAMA && <AskMeAnything />}
+      {/* {showAMA && <AskMeAnything />} */}
     </>
   );
 }
